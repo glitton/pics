@@ -1,8 +1,10 @@
 import React from "react";
 
 const ImageList = props => {
-  const images = props.images.map((image, index) => {
-    return <img alt="" key={index} src={image.urls.regular} />;
+  // deconstruction in map
+  // don't have to say images multiple times
+  const images = props.images.map(({ description, id, urls}) => {
+    return <img alt={description} key={id} src={urls.regular} />;
   });
   return <div>{images}</div>;
 };
